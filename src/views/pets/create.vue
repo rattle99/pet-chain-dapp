@@ -46,7 +46,7 @@ export default {
           <div class="field">
             <label class="label" for="kind">Kind</label>
             <div class="control">
-              <div class="select">
+              <div class="select" id="kind-select">
                 <select v-model="kind" class="select-full" id="kind" name="kind">
                   <option>Dog</option>
                   <option>Cat</option>
@@ -54,6 +54,14 @@ export default {
                 </select>
               </div>
             </div>
+          </div>
+
+          <!-- form divider line -->
+          <hr>
+
+          <!-- form control buttons -->
+          <div class="control">
+            <button class="button is-primary">Save</button>
           </div>
         </div>
       </div>
@@ -64,7 +72,7 @@ export default {
 
 <!-- component style -->
 <style lang="scss">
-  .select, .select-full {
+  #kind-select, #kind-select > select {
     width: 100%;
   }
 </style>
