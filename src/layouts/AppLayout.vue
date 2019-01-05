@@ -1,25 +1,72 @@
+<!-- layout scripts -->
+<script>
+// import Vuex helpers.
+import { mapGetters, mapActions } from 'vuex'
+import AppNavbar from '../components/layout/Navbar'
+
+// export component.
+export default {
+  // component name.
+  name: 'AppLayout',
+
+  // child components.
+  components: {
+    AppNavbar
+  },
+
+  // computed properties.
+  computed: {
+    // map getters from web3 vuex store.
+    ...mapGetters('web3', ['avatar', 'selectedAddress', 'guest'])
+  },
+
+  // component methods.
+  methods: {
+    // import actions from web3 vuex store.
+    ...mapActions('web3', ['enableWeb3Account'])
+  },
+  mounted () {
+    // enable the web3 account when a page starts.
+    this.enableWeb3Account()
+  }
+}
+</script>
+<!-- layout template -->
 <template>
+  <!-- layout wrapper -->
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <!-- app navbar -->
+    <app-navbar></app-navbar>
+
+    <!-- content container-->
+    <div class="container" id="app-content">
+      <router-view/>
     </div>
-    <router-view/>
   </div>
 </template>
-<style lang="stylus">
-#app
-  font-family 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
 
-#nav
-  padding 30px
-  a
-    font-weight bold
-    color #2c3e50
-    &.router-link-exact-active
-      color #42b983
+<!-- layout style -->
+<style lang="scss">
+
+  // custom variables.
+  $navbar-height: 4.5rem;
+  $navbar-item-img-max-height: 2.5rem;
+
+  // import bulma.
+  @import "~bulma/bulma.sass";
+
+  // main app wrapper style.
+  #app {
+    background: lighten($grey-lighter, 10%);
+    min-height: 100vh;
+  }
+
+  // inner content wrapper style.
+  #app-content {
+    border-radius: 4px;
+    box-shadow: 0 0 2px 1px rgba(black, 0.05);
+    background: white;
+    margin-top: 30px;
+    padding: 15px;
+  }
 </style>
