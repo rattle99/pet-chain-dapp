@@ -1,7 +1,7 @@
 <!-- layout scripts -->
 <script>
 // import Vuex helpers.
-import { mapGetters, mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 import AppNavbar from '../components/layout/Navbar'
 
 // export component.
@@ -12,12 +12,6 @@ export default {
   // child components.
   components: {
     AppNavbar
-  },
-
-  // computed properties.
-  computed: {
-    // map getters from web3 vuex store.
-    ...mapGetters('web3', ['avatar', 'selectedAddress', 'guest'])
   },
 
   // component methods.
