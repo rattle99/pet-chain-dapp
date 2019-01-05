@@ -36,18 +36,18 @@ export default {
 
           <!-- pet name field group -->
           <div class="field">
-            <label class="label">Name</label>
+            <label class="label" for="name">Name</label>
             <div class="control">
-              <input class="input" v-model="name" type="text" placeholder="e.g. Benjamin, Sam...">
+              <input class="input" v-model="name" type="text" name="name" id="name" placeholder="e.g. Benjamin, Sam...">
             </div>
           </div>
 
           <!-- pet kind field group -->
           <div class="field">
-            <label class="label">Kind</label>
+            <label class="label" for="kind">Kind</label>
             <div class="control">
               <div class="select">
-                <select v-model="kind">
+                <select v-model="kind" class="select-full" id="kind" name="kind">
                   <option>Dog</option>
                   <option>Cat</option>
                   <option>Other</option>
@@ -64,5 +64,7 @@ export default {
 
 <!-- component style -->
 <style lang="scss">
-  //
+  .select, .select-full {
+    width: 100%;
+  }
 </style>
