@@ -32,7 +32,7 @@ contract Owners {
     // remove a pet contract from the owner list.
     function removePet(address _petContract) public returns (bool) {
         // alias my pets contracts.
-        address[] myPets = pets[msg.sender];
+        address[] memory myPets = pets[msg.sender];
 
         // loop searching for the given contract to delete.
         for(uint i = 0; i < myPets.length; i++) {
