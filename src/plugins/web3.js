@@ -1,10 +1,8 @@
-// import vue.
-import Vue from 'vue'
 // import web3.
 import Web3 from 'web3'
 
 // init web3 function.
-const initWeb3 = (Vue) => {
+export default (Vue) => {
   // start web3 instance with the given provider.
   const web3 = new Web3(Web3.givenProvider)
 
@@ -18,6 +16,3 @@ const initWeb3 = (Vue) => {
     window.web3 = web3
   }
 }
-
-// enable web3 plugin.
-Vue.use(initWeb3)
