@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from './App.vue'
+import AppLayout from './layouts/AppLayout'
 import router from './router'
 import store from './store'
 import plugins from './plugins'
@@ -10,5 +10,5 @@ Vue.use(plugins)
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: h => h(AppLayout)
 }).$mount('#app')
