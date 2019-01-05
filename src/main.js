@@ -4,9 +4,8 @@ import router from './router'
 import store from './store'
 import plugins from './plugins'
 
+// enable plugins.
 Vue.use(plugins)
-
-Vue.config.productionTip = false
 
 new Vue({
   router,
