@@ -2,6 +2,7 @@
 <script>
 // import Vuex helpers.
 import { mapActions } from 'vuex'
+// import child components.
 import AppNavbar from '../components/layout/Navbar'
 
 // export component.
