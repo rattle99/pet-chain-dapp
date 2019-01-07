@@ -4,6 +4,8 @@ import Vuex from 'vuex'
 
 // import web3 module.
 import web3 from './web3'
+// import pets module.
+import pets from './pets'
 
 // enable vuex.
 Vue.use(Vuex)
@@ -15,6 +17,7 @@ export default new Vuex.Store({
   actions: {},
   mutations: {},
   modules: {
-    web3
+    web3,
+    pets
   }
 })
