@@ -72,8 +72,20 @@ export default {
 </template>
 
 <style lang="scss">
+  // import bulma mixins.
+  @import "~bulma/sass/utilities/mixins";
+
   // custom navbar styles.
   .navbar {
+    // padded container.
+    > .container {
+      // desktop only padding.
+      @include from($desktop) {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+    }
     box-shadow: 0 0 2px 1px rgba(black, 0.05);
 
     // make account avatar rounded.
