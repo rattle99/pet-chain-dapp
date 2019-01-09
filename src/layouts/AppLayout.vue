@@ -2,6 +2,7 @@
 <script>
 // import Vuex helpers.
 import { mapActions } from 'vuex'
+// import child components.
 import AppNavbar from '../components/layout/Navbar'
 
 // export component.
@@ -33,8 +34,11 @@ export default {
     <app-navbar></app-navbar>
 
     <!-- content container-->
-    <div class="container" id="app-content">
-      <router-view/>
+    <div class="container" id="app-content-container">
+      <div class="columns is-centered">
+        <!-- use div#app-container on inner elements to have the panel borders -->
+        <router-view/>
+      </div>
     </div>
   </div>
 </template>
@@ -55,12 +59,16 @@ export default {
     min-height: 100vh;
   }
 
+  #app-content-container {
+    padding: 15px;
+  }
+
   // inner content wrapper style.
   #app-content {
     border-radius: 4px;
     box-shadow: 0 0 2px 1px rgba(black, 0.05);
     background: white;
     margin-top: 30px;
-    padding: 15px;
+    padding: 30px;
   }
 </style>

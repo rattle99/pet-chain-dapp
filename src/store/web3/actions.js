@@ -2,7 +2,6 @@
 
 // import web3.
 import Web3 from 'web3'
-import { first } from 'lodash-es'
 
 // main store actions.
 export default {
@@ -61,6 +60,7 @@ export default {
     const web3 = new Web3(ethereumProvider)
     // set web3 account on state.
     commit('setWeb3', web3)
+
     // complete by returning the web3 instance.
     return web3
   },
@@ -85,18 +85,14 @@ export default {
     // alias current ethereum provider from web3 provider.
     const provider = web3.currentProvider
 
-    // check if there's a selected address on the provider.
-    const address = provider.selectedAddress
-
-    if (address) {
-      commit('setSelectedAddress', address)
-    }
+    // listen for updates on the provider, to set the current address.
+    // this allows auto detection when the account or network changes on MetaMask.
+    provider.publicConfigStore.on('update', ({ selectedAddress }) => {
+      commit('setSelectedAddress', selectedAddress)
+    })
 
     // enable the web3 provider to get access to the account.
-    return provider
-      .enable()
-      .then(first)
-      .then(address => commit('setSelectedAddress', address))
+    return provider.enable()
   }
 
 }
